@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import {FormInput, Button} from "react-native-elements";
+import i18n from 'i18n-js'
 import theme from '../common/Theme'
 
 class LoginScreen extends Component {
@@ -13,38 +14,42 @@ class LoginScreen extends Component {
         <View style={styles.dividersView}>
           <View style={styles.inputView}>
             <FormInput
-              placeholder={'email'}
+              placeholder={i18n.t('LoginScreen.emailPlaceholder')}
               keyboardType={'email-address'}
+              underlineColorAndroid={theme.colors.primary}
+              inputStyle={styles.textInput}
             />
           </View>
           <View style={[styles.inputView,{marginTop: 20}]}>
             <FormInput
-              placeholder={'password'}
+              placeholder={i18n.t('LoginScreen.passwordPlaceholder')}
               secureTextEntry
+              underlineColorAndroid={theme.colors.primary}
+              inputStyle={styles.textInput}
             />
           </View>
-          <View style={[styles.inputView,{marginTop: 20}]}>
+          <View style={{marginTop: 20, width: 350}}>
             <Button
               raised
-              title={'Sig in'}
+              title={i18n.t('LoginScreen.signinButton')}
               onPress={() => {}}
               backgroundColor={theme.colors.primary}
             />
           </View>
-          <Text style={{marginTop:40}}>Or</Text>
+          <Text style={{marginTop:40}}>{i18n.t('LoginScreen.orLabel')}</Text>
           <View style={styles.socialView}>
             <Button
               rightIcon={{name: 'google', type: 'material-community'}}
               raised
-              title={'Sig in with'}
+              title={i18n.t('LoginScreen.loginWithButton')}
               onPress={() => {}}
               backgroundColor={theme.colors.googleColor}
             />
           </View>
         </View>
         <View style={styles.dividersView}>
-          <Text style={{marginTop:40}}>Without account yet?</Text>
-          <Text onPress={() => {}} style={styles.registerButton}>Register</Text>
+          <Text style={{marginTop:40}}>{i18n.t('LoginScreen.withoutAccountLabel')}</Text>
+          <Text onPress={() => {}} style={styles.registerButton}>{i18n.t('LoginScreen.registerLabel')}</Text>
         </View>
       </View>
     )
@@ -65,7 +70,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   inputView:{
-    width: 350
+    alignSelf:'stretch',
+    alignItems:'center',
   },
   socialView:{
     marginTop:20,
@@ -74,6 +80,9 @@ const styles = StyleSheet.create({
   registerButton:{
     color:theme.colors.linkButton,
     marginTop:10
+  },
+  textInput:{
+    width: 320
   }
 })
 

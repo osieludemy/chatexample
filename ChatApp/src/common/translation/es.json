@@ -1,0 +1,11 @@
+{
+  "LoginScreen": {
+    "emailPlaceholder": "correo electrónico",
+    "passwordPlaceholder" : "contraseña",
+    "signinButton": "Iniciar sesión",
+    "orLabel": "O",
+    "loginWithButton": "Iniciar sesión con",
+    "withoutAccountLabel": "¿Sin cuenta todavía?",
+    "registerLabel": "Crear cuenta"
+  }
+}

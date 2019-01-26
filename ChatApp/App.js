@@ -3,6 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import firebase from 'react-native-firebase';
 
 import LoginScreen from './src/LoggedOut/LoginScreen'
+import i18n from './src/common/translation/i18n'
+import RNlanguages from 'react-native-languages'
 
 
 
@@ -10,6 +12,19 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {};
+  }
+
+  componentWillMount(): void {
+    //i18n.locale = RNlanguages.language
+    RNlanguages.addEventListener('change', this._onLanguageChanges)
+  }
+
+  componentWillUnmount(): void {
+    RNlanguages.removeEventListener('change',this._onLanguageChanges)
+  }
+
+  _onLanguageChanges = ({language}) => {
+    i18n.locale = language
   }
 
   async componentDidMount() {

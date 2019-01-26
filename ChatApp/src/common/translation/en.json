@@ -1,0 +1,11 @@
+{
+  "LoginScreen": {
+    "emailPlaceholder": "email",
+    "passwordPlaceholder" : "password",
+    "signinButton": "Sign in",
+    "orLabel": "Or",
+    "loginWithButton": "Login with ",
+    "withoutAccountLabel": "Without account yet?",
+    "registerLabel": "Register"
+  }
+}
